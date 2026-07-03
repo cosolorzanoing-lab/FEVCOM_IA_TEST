@@ -1,0 +1,21 @@
+users:
+  admin:
+    password_hash: "pbkdf2_sha256$600000$fevcom-demo-admin$c26f30fb3d36465407e4e21d145a07b8399c0d59e6edec88182f4e2c9b9131d6"
+    display_name: "Administrator"
+    role: "admin"
+    permissions:
+      use_smart_model: true
+      use_web_search: true
+      view_diagrams: true
+      manage_users: true
+      upload_images: true
+  technician:
+    password_hash: "pbkdf2_sha256$600000$fevcom-demo-tech$8a72c2b7f78e927f78a50dbcba8192c5f8f47e032067347007f8b05e738cc690"
+    display_name: "Technician"
+    role: "technician"
+    permissions:
+      use_smart_model: false
+      use_web_search: false
+      view_diagrams: true
+      manage_users: false
+      upload_images: true

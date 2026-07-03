@@ -1,0 +1,22 @@
+documents: []
+  # Add local manuals and electrical diagrams here so the app can open them in-page.
+  # Keep these records aligned with the files uploaded to your OpenAI vector store.
+  # Example:
+  # - component: "Allen-Bradley PowerFlex 525"
+  #   kind: "manual"
+  #   title: "PowerFlex 525 Adjustable Frequency AC Drive User Manual"
+  #   source: "local"
+  #   path: "data/manuals/powerflex-525-user-manual.pdf"
+  #   page: 1
+  #   aliases: ["PF525", "25B drive"]
+  # - component: "MTR-101"
+  #   kind: "diagram"
+  #   title: "Line 2 Conveyor Electrical Diagram"
+  #   source: "local"
+  #   path: "data/diagrams/line-2-conveyor.pdf"
+  #   page: 7
+  #   marker:
+  #     x_pct: 52
+  #     y_pct: 38
+  #     w_pct: 8
+  #     h_pct: 5
