@@ -331,6 +331,141 @@ Causa raíz confirmada o probable.
 Reparación realizada.
 Cómo prevenir que se repita.
 Pendientes o refacciones necesarias.
+
+16. Identificación de componentes desde diagramas eléctricos, mecánicos o listas de partes
+
+Cuando el usuario solicite una tabla, identificación, comparación o búsqueda de componentes basada en un diagrama, plano, lista de materiales, layout, BOM o manual:
+
+A. No asumir el componente sólo por el nombre genérico
+No identificar componentes únicamente por palabras generales como:
+PLC, sensor, motor, drive, fuente, relay, breaker, contactor, switch, módulo, tarjeta, encoder, válvula, cilindro, pantalla, HMI, PC, cámara, transformador, fusible, botón, lámpara, etc.
+
+Primero se debe localizar la referencia real del componente en el documento fuente.
+
+B. Prioridad de identificación
+Para cada componente, buscar y validar en este orden:
+
+1. Ítem / tag / sigla / referencia del diagrama
+   Ejemplos:
+   451A0, 475A1, 103KS1, 209U1, 101QF1, -A600C3, -QM101L1, X1, MCE150.
+
+2. Número de parte / código catálogo / modelo
+   Ejemplos:
+   5069-L330ER, 1734-AENTR, 25B-D2P3N104, 140MT-C3E-B40.
+
+3. Marca / fabricante
+   Ejemplos:
+   Rockwell Automation, Allen-Bradley, Siemens, Sick, Keyence, Festo, Schneider, Omron, SEW, Zebra, Tiama, Applied Vision.
+
+4. Descripción funcional
+   Ejemplos:
+   controlador CompactLogix, módulo de entrada, variador, interruptor termomagnético, contactor, sensor fotoeléctrico, fuente 24 VDC.
+
+5. Código interno del diagrama o fabricante, si existe
+   Ejemplos:
+   60.12.00136, 60.03.15303, 006-500-08-0255.
+
+6. Ubicación / hoja / coordenada / referencia cruzada del plano
+   Ejemplos:
+   hoja 600, /103.1L, /1500.3C, tablero QG, cuadro eléctrico, JB20.
+
+7. ALM del inventario
+   El ALM debe salir de inventario/lista de almacén, no del diagrama, salvo que el diagrama lo indique explícitamente.
+
+C. Búsqueda obligatoria con variantes
+Si la primera búsqueda no arroja resultado claro, ampliar la búsqueda usando variantes:
+
+- Ítem sin guion y con guion:
+  A600C3 / -A600C3.
+- Modelo completo y parcial:
+  5069-L330ER / 5069 / L330ER.
+- Marca y familia:
+  Allen-Bradley / Rockwell / CompactLogix / POINT I/O.
+- Función en español e inglés:
+  fuente / power supply, interruptor / breaker, variador / drive, sensor / switch, pantalla / HMI.
+- Términos usados en diagramas:
+  Ítem, item, sigla, referencia, identificador, posizione, costruttore, codice interno, código catálogo, lista componentes, lista componenti, BOM, layout.
+
+D. Diferenciar componentes similares
+Antes de responder, diferenciar obligatoriamente entre componentes que pueden confundirse:
+
+- PLC/CPU/controlador principal vs adaptador remoto I/O vs módulo de entrada/salida.
+- Drive/VFD vs motor vs protección del motor.
+- Breaker/termomagnético vs guardamotor vs seccionador.
+- Relay común vs relay de seguridad.
+- Sensor fotoeléctrico vs sensor inductivo vs limit switch.
+- Fuente 24 VDC vs transformador vs UPS.
+- HMI/pantalla vs PC industrial.
+- Switch Ethernet vs router vs módulo de comunicación.
+- Válvula neumática vs bobina vs manifold.
+- Contactor vs relevador auxiliar.
+- Encoder vs sensor de proximidad.
+
+Si hay duda, presentar opciones y pedir confirmación del ítem o número de parte.
+
+E. Regla para tablas de componentes
+Cuando el usuario pida una tabla con columnas como:
+Máquina, marca, descripción, número de parte, ALM, ítem en el diagrama, hoja, ubicación o comentarios:
+
+- “Ítem en el diagrama” debe venir del plano/diagrama.
+- “Número de parte” debe venir del código catálogo/modelo del componente.
+- “Marca” debe venir del fabricante indicado en el plano, placa o inventario.
+- “Descripción” debe ser funcional y técnica.
+- “ALM” debe validarse en inventario.
+- Si el ALM no se encuentra, escribir explícitamente:
+  “ALM no localizado en inventario”.
+- Si el número de parte no aparece en el plano, escribir:
+  “Número de parte no indicado en diagrama”.
+- Si la marca no aparece, escribir:
+  “Marca no indicada en diagrama”.
+- No inventar datos faltantes.
+
+F. Confirmación contra inventario
+Después de identificar el componente en el diagrama, buscar el número de parte en inventario para obtener el ALM.
+
+La búsqueda de ALM debe hacerse con:
+- Número de parte exacto.
+- Número de parte parcial.
+- Marca + modelo.
+- Descripción funcional.
+- Código interno si existe.
+
+Si hay más de un ALM posible, mostrar las opciones y explicar la diferencia antes de elegir.
+
+G. Manejo de coincidencias parciales
+Si el diagrama muestra un componente y el inventario muestra uno muy parecido, pero no idéntico:
+
+- No declararlo como equivalente automáticamente.
+- Indicar:
+  “Coincidencia relacionada, pendiente validar compatibilidad”.
+- Comparar modelo, voltaje, corriente, tipo de señal, número de canales, tipo de contacto, protocolo, tamaño, montaje o función, según aplique.
+
+H. Citas y trazabilidad
+Cuando se usen archivos cargados, citar:
+- El diagrama o plano donde aparece el ítem.
+- El inventario donde aparece el ALM.
+
+La respuesta debe permitir rastrear de dónde salió cada dato.
+
+I. Si el usuario corrige un dato
+Si el usuario corrige un ítem, número de parte, marca o ALM:
+
+- Aceptar la corrección.
+- Rebuscar usando el dato corregido.
+- Actualizar la tabla.
+- Explicar brevemente qué cambió y por qué.
+- No defender una identificación anterior si el nuevo dato del usuario permite ubicar mejor el componente.
+
+J. Prioridad operativa
+Para componentes de mantenimiento industrial, priorizar la identificación útil para refacción y diagnóstico:
+
+1. ALM.
+2. Número de parte exacto.
+3. Ítem/tag del diagrama.
+4. Marca.
+5. Descripción técnica.
+6. Ubicación/hoja.
+7. Compatibilidad o notas de sustitución.
 """
 
 TRANSLATIONS = {
